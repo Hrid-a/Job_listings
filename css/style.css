@@ -1,0 +1,248 @@
+:root {
+    --primary-clr: hsl(180 29% 50%);
+
+    --clr-white: hsl(0, 0%, 100%);
+    --neutral-bg-clr: hsl(180 52% 96%);
+    --neutral-clr-200: hsl(180 31% 95%);
+    --neutral-clr-400: hsl(180 8% 52%);
+    --neutral-clr-700: hsl(180 14% 20%);
+
+    --font-size: 15px;
+    --font-family: "League Spartan", Sans-serif;
+    --f-weight-500: 500;
+    --f-weight-700: 700;
+}
+
+/* Css REset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+img,
+svg,
+picture,
+canvas,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+
+body {
+    scroll-behavior: smooth;
+    line-height: 1.5;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    background-color: var(--neutral-bg-clr);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    overflow-wrap: break-word;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: min(calc(100% - 3rem), 980px);
+    margin: 0 auto;
+}
+
+header {
+    height: 95px;
+    background-image: url(../images/bg-header-mobile.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+@media screen and (min-width:768px) {
+    header {
+        /* height: 40px; */
+        background-image: url(../images/bg-header-desktop.svg);
+    }
+}
+
+main {
+    padding-block: 60px;
+}
+
+main .container {
+    display: grid;
+    gap: 4rem;
+}
+
+@media screen and (min-width:768px) {
+    main .container {
+        gap: 2rem;
+    }
+}
+
+
+.content {
+    background-color: hsla(0, 0%, 100%, 0.969);
+    padding: 1rem;
+    border-radius: 10px;
+    display: grid;
+    gap: 1rem;
+    box-shadow: 0 10px 6px hsla(180, 39%, 56%, 0.161);
+    position: relative;
+}
+
+.content:has(.new):before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background-color: var(--primary-clr);
+    border-radius: 10px;
+}
+
+@media screen and (min-width:992px) {
+    .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.comp-info {
+    display: grid;
+    gap: 1rem;
+}
+
+@media screen and (max-width:767px) {
+    .img-container {
+        position: absolute;
+        top: -20%;
+    }
+
+    .comp-info {
+        padding-top: 2rem;
+    }
+}
+
+.content .comp-info p {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.comp-info p span {
+    display: block;
+    color: var(--primary-clr);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.comp-info .new,
+.comp-info .featured {
+    background-color: var(--primary-clr);
+    color: var(--clr-white);
+    text-transform: uppercase;
+    padding: 0.2rem 0.4rem;
+    border-radius: 100vw;
+}
+
+.comp-info p span.featured {
+    background-color: hsl(0, 0%, 0%);
+}
+
+.job__title {
+    cursor: pointer;
+}
+
+.job__title:hover {
+    color: var(--primary-clr);
+}
+
+.comp-details {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.comp-details span {
+    color: hsl(0, 4%, 74%);
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+}
+
+.comp-details span:not(:first-of-type)::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    transform: translateY(-50%);
+    background-color: currentColor;
+    width: 5px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+
+
+}
+
+@media screen and (min-width:768px) {
+    .job-container {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+}
+
+.job-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.job-info p {
+    cursor: pointer;
+    background-color: var(--neutral-bg-clr);
+    color: var(--primary-clr);
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    transition: background-color 250ms;
+}
+
+.job-info p:hover {
+    background-color: var(--primary-clr);
+    color: var(--clr-white);
+}
+
+@media screen and (max-width:991px) {
+    .job-info {
+        border-top: 1px solid hsl(0, 4%, 74%);
+        padding-top: 1rem;
+    }
+}
