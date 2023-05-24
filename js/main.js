@@ -1,18 +1,21 @@
 const jobContainer = document.querySelector("main .container")
+window.addEventListener("DOMContentLoaded", ()=> {
+    getjobs()
+})
+
 async function getjobs() {
     try{
-        let response = await fetch("../data.json");
+        let response = await fetch("data.json");
         let data = await response.json()
         renderJobs(data)
         // return data
     
     }catch (err) {
-        console.log(`An error happend ${err.message}`);
+        console.log(`An error happend ${err}`);
     }
     
     
 }
-
 
 function renderJobs(arr){
     jobItem = arr.map(item => {
@@ -47,7 +50,5 @@ function renderJobs(arr){
 
     jobContainer.innerHTML = jobItem;
 }
-
-getjobs()
 
 

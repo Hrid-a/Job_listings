@@ -139,7 +139,8 @@ main .container {
 @media screen and (max-width:767px) {
     .img-container {
         position: absolute;
-        top: -20%;
+        top: -10%;
+        width: 60px;
     }
 
     .comp-info {
